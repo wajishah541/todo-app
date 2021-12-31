@@ -1,7 +1,6 @@
 import { Mount } from '@vue/test-utils'
+import { shallowMount } from "@vue/test-utils";
 import Todo from '@/components/Todo'
-import axios from 'axios'
-import mockAxios from 'jest-mock-axios'
 //Acceptance Test
 describe('The todo.vue component', () => {
   it('Enables user to add todo ', () => {
@@ -25,4 +24,19 @@ describe('The todo.vue component', () => {
   expect(axios.post).toHaveBeenCalledWith(`${postTodoUrl}/handlerequest`)
   expect(result.data).toEqual(tasks)
    })
+
+   it('renders a component', () => {
+    const wrapper = shallowMount(Todo, {
+      propsData: {
+        title: 'Todo-App'
+      }
+    })
+    //expect(wrapper.text()).toMatch('My TodoApp')
+    expect(wrapper.exists).toBetruthy()
+   })
+   
+   
+ 
+
+
 })
