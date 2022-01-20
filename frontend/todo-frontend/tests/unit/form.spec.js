@@ -1,10 +1,10 @@
-import { Mount } from '@vue/test-utils'
-import { shallowMount } from "@vue/test-utils";
-import Todo from '@/components/Todo'
+import { shallowMount } from "@vue/test-utils"
+import Todo from "../../src/components/Todo.vue"
+import axios from 'axios'
 //Acceptance Test
 describe('The todo.vue component', () => {
   it('Enables user to add todo ', () => {
-    const wrapper = Mount(Todo,{
+    const wrapper = shallowMount(Todo,{
     props:{
       title: 'Todo-App'
     }
@@ -24,19 +24,16 @@ describe('The todo.vue component', () => {
   expect(axios.post).toHaveBeenCalledWith(`${postTodoUrl}/handlerequest`)
   expect(result.data).toEqual(tasks)
    })
-
+//component shallow rendering test
    it('renders a component', () => {
     const wrapper = shallowMount(Todo, {
       propsData: {
         title: 'Todo-App'
       }
     })
-    //expect(wrapper.text()).toMatch('My TodoApp')
-    expect(wrapper.exists).toBetruthy()
+    expect(wrapper.html()).toMatchSnapshot();
    })
-   
-   
- 
+
 
 
 })
