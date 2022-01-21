@@ -32,8 +32,36 @@ describe('The todo.vue component', () => {
       }
     })
     expect(wrapper.html()).toMatchSnapshot();
-   })
-
-
+    })
+    //Test case for title
+    it('displays a title ', () => {
+      const wrapper = shallowMount(Todo, {
+        propsData: {
+          title: 'Todo-App'
+        }
+      })
+      expect(wrapper.html().title).toEqual('Todo-App')
+      })
+      //test case for todo input field
+      it('allows for adding  todo in todo-input field ',async ()  => {
+        const wrapper = shallowMount(Todo, {
+          propsData: {
+            title: 'Todo-App'
+          }
+        })
+        const input = wrapper.find("input")
+    await input.setValue('buy some milk')
+    expect(wrapper.find('input[type="text"]').element.value).toBe('buy some milk')
+        })
+        //test case for button 
+        it('triggers on click', async () => {
+          const wrapper = shallowMount(Todo, {
+            propsData: {
+              title: 'Todo-App'
+            }
+          })
+          await wrapper.find('button').trigger('click')
+          expect(wrapper.emitted()).toHaveProperty('submit')
+          })
 
 })
