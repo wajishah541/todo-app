@@ -24,6 +24,7 @@ describe('The todo.vue component', () => {
   expect(axios.post).toHaveBeenCalledWith(`${postTodoUrl}/handlerequest`)
   expect(result.data).toEqual(tasks)
    })
+   describe('The todo.vue component', () => {
 //component shallow rendering test
    it('renders a component', () => {
     const wrapper = shallowMount(Todo, {
@@ -34,14 +35,16 @@ describe('The todo.vue component', () => {
     expect(wrapper.html()).toMatchSnapshot();
     })
     //Test case for title
-    it('displays a title ', () => {
+    it('Displays the title when passed as a prop', () => {
       const wrapper = shallowMount(Todo, {
         propsData: {
-          title: 'Todo-App'
+          title: 'My TodoApp'
         }
       })
-      expect(wrapper.html().title).toEqual('Todo-App')
-      })
+      //expect(wrapper.text()).toMatch('My TodoApp')
+      expect(wrapper.props().title).toBe('My TodoApp')
+      expect(wrapper.props('title')).toBe('My TodoApp')
+    })
       //test case for todo input field
       it('allows for adding  todo in todo-input field ',async ()  => {
         const wrapper = shallowMount(Todo, {
@@ -63,5 +66,6 @@ describe('The todo.vue component', () => {
           await wrapper.find('button').trigger('click')
           expect(wrapper.emitted()).toHaveProperty('submit')
           })
+        })
 
 })

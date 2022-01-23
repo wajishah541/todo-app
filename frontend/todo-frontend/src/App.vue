@@ -1,16 +1,12 @@
 <template>
- <Todo></Todo>
+  <Todo title="Todo-App"></Todo>
 </template>
 <script>
 import Todo from "./components/Todo.vue";
 export default {
-  name: 'App',
-  data(){
-
-  },
-  components: {Todo}
- 
-}
+  name: "App",
+  components: { Todo },
+};
 </script>
 <style>
 #app {
@@ -22,7 +18,7 @@ export default {
   margin-top: 60px;
 }
 body {
-  margin:0;
-  background:#eee;
+  margin: 0;
+  background: #eee;
 }
 </style>
