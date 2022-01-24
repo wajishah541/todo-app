@@ -1,9 +1,9 @@
 <template>
-  <form>
+  <form v-on:submit.prevent>
     <h1>{{ title }}</h1>
     <label>Add todo here </label>
     <input type="text" />
-    <button>Add</button>
+    <button class="add">Add</button>
   </form>
 </template>
 <script>
@@ -15,6 +15,7 @@ export default {
       required: true,
     },
   },
+  methods: {},
 };
 </script>
 <style>
