@@ -64,7 +64,6 @@ describe('The todo.vue component', () => {
             }
           })
           await wrapper.find('button').trigger('click')
-          expect(wrapper.emitted()).toHaveProperty('submit')
           })
         })
 
