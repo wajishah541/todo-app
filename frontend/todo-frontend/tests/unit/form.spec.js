@@ -42,8 +42,7 @@ describe('The todo.vue component', () => {
           title: 'My TodoApp'
         }
       })
-      // expect(wrapper.text()).toMatch('My TodoApp')
-      expect(wrapper.props().title).toBe('My TodoApp')
+     expect(wrapper.props().title).toBe('My TodoApp')
       expect(wrapper.props('title')).toBe('My TodoApp')
     })
     // test case for todo input field

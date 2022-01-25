@@ -1,8 +1,8 @@
 <template>
-  <Todo title="Todo-App"></Todo>
+  <Todo></Todo>
 </template>
 <script>
-import Todo from "./components/Todo.vue";
+import Todo from "@/components/Todo.vue";
 export default {
   name: "App",
   components: { Todo },

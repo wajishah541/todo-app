@@ -2,6 +2,16 @@
 
 exports[`The todo.vue component The todo.vue component renders a component 1`] = `
 "<form>
-  <h1>Todo-App</h1><label>Add todo here </label><input type=\\"text\\"><button class=\\"add\\">Add</button>
+  <h1>Todo-App</h1><label>Add todo here </label><input type=\\"text\\" required=\\"\\"><button class=\\"add\\">Add</button>
+  <div>
+    <ul>
+      <li></li>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <li></li>
+    </ul>
+  </div>
 </form>"
 `;

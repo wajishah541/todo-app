@@ -2,8 +2,15 @@
   <form v-on:submit.prevent>
     <h1>{{ title }}</h1>
     <label>Add todo here </label>
-    <input type="text" />
-    <button class="add">Add</button>
+    <input type="text" required v-model="task" />
+    <button class="add" @click="add">Add</button>
+    <div v-for="(task, index) in tasks" :key="index">
+      <ul>
+        <li>
+          {{ task.content }}
+        </li>
+      </ul>
+    </div>
   </form>
 </template>
 <script>
@@ -15,7 +22,29 @@ export default {
       required: true,
     },
   },
-  methods: {},
+  data() {
+    return {
+      task: "",
+      tasks: [
+        {
+          content: "",
+          ID: true,
+        },
+        {
+          content: "",
+          ID: true,
+        },
+      ],
+    };
+  },
+  methods: {
+    add() {
+      this.tasks.push({
+        content: this.task,
+      });
+      this.task = "";
+    },
+  },
 };
 </script>
 <style>
