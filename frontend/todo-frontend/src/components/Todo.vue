@@ -27,11 +27,11 @@ export default {
       task: "",
       tasks: [
         {
-          content: "",
+          content: task,
           ID: true,
         },
         {
-          content: "",
+          content: task,
           ID: true,
         },
       ],
